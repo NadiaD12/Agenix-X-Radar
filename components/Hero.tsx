@@ -52,7 +52,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
           </h1>
           
           <p className="text-base md:text-xl text-slate-600 mb-8 max-w-4xl mx-auto leading-relaxed font-medium px-4">
-            Agentix powers AI commerce for ecommerce platforms and ISVs with AI visibility, autonomous checkout, and AI-driven payment rails.
           </p>
           
           <div className="flex flex-col items-center justify-center max-w-xl mx-auto w-full">
@@ -88,24 +87,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
                   Free check: can AI agents find your products?
                 </p>
               </form>
-            </div>
-
-            <div className="relative group mb-8">
-              {/* Extreme Glowing light blue light effect behind button */}
-              <div className="absolute inset-[-30px] bg-brand-400/40 blur-[40px] rounded-full transition-all duration-700 group-hover:bg-brand-400/60 group-hover:scale-125 animate-pulse"></div>
-              <div className="absolute inset-[-15px] bg-brand-300/70 blur-[20px] rounded-full"></div>
-              <div className="absolute inset-[-5px] bg-cyan-200/50 blur-[10px] rounded-full"></div>
-              
-              <button 
-                onClick={onOpenDemo}
-                className="relative px-12 py-5 rounded-full bg-brand-600 text-white font-bold hover:bg-brand-700 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center text-lg gap-2 z-10"
-              >
-                <Zap size={20} className="text-white fill-white" />
-                Join the waitlist
-              </button>
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full text-[10px] text-slate-500 font-bold uppercase tracking-wider z-10">
-                Secure your priority access spot
-              </span>
             </div>
           </div>
         </div>

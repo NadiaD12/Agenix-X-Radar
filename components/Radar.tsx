@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useInView } from 'framer-motion';
-import { Search, CheckCircle2, ArrowRight, TrendingUp, BarChart3, Zap, Shield, Globe, Cpu, MousePointer2 } from 'lucide-react';
+import { Search, CheckCircle2, ArrowRight, TrendingUp, BarChart3, Zap, Shield, Globe, Cpu, MousePointer2, HelpCircle, ChevronDown } from 'lucide-react';
 
 // --- Helper Components ---
 
@@ -28,6 +28,19 @@ const BrowserChrome = ({ children, url }: any) => (
 
 const ScanContent = () => (
   <div className="w-full">
+    <div className="relative h-48 mb-6 rounded-2xl overflow-hidden border border-slate-100">
+      <img 
+        src="https://picsum.photos/seed/agentix-scan/800/400" 
+        alt="AI Scan" 
+        className="w-full h-full object-cover"
+        referrerPolicy="no-referrer"
+      />
+      <div className="absolute inset-0 bg-brand-900/20 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full border-2 border-white border-t-transparent animate-spin"></div>
+        </div>
+      </div>
+    </div>
     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6">AI Commerce Readiness Scan</p>
     <div className="flex gap-3 mb-8">
       <div className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -64,6 +77,14 @@ const ScanContent = () => (
 
 const ScoreContent = () => (
   <div className="w-full">
+    <div className="relative h-40 mb-8 rounded-2xl overflow-hidden border border-slate-100">
+      <img 
+        src="https://picsum.photos/seed/agentix-score/800/400" 
+        alt="Radar Score" 
+        className="w-full h-full object-cover"
+        referrerPolicy="no-referrer"
+      />
+    </div>
     <div className="flex items-center gap-8 mb-10">
       <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center">
         <svg className="w-full h-full -rotate-90">
@@ -108,6 +129,14 @@ const ScoreContent = () => (
 
 const FixContent = () => (
   <div className="w-full">
+    <div className="relative h-32 mb-6 rounded-2xl overflow-hidden border border-slate-100">
+      <img 
+        src="https://picsum.photos/seed/agentix-fix/800/400" 
+        alt="Product Breakdown" 
+        className="w-full h-full object-cover"
+        referrerPolicy="no-referrer"
+      />
+    </div>
     <div className="flex justify-between items-center mb-8">
       <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Product Breakdown</h4>
       <span className="text-[10px] font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded-lg">3 of 284</span>
@@ -141,6 +170,14 @@ const FixContent = () => (
 
 const GrowContent = () => (
   <div className="w-full">
+    <div className="relative h-40 mb-6 rounded-2xl overflow-hidden border border-slate-100">
+      <img 
+        src="https://picsum.photos/seed/agentix-grow/800/400" 
+        alt="Growth Opportunity" 
+        className="w-full h-full object-cover"
+        referrerPolicy="no-referrer"
+      />
+    </div>
     <div className="bg-gradient-to-br from-[#092C4C] to-brand-900 rounded-2xl p-6 text-white mb-6 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-400/20 blur-3xl rounded-full"></div>
       <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60 mb-2">AI Growth Opportunity</p>
@@ -444,5 +481,26 @@ const BigPictureMockup = () => (
     </div>
   </BrowserChrome>
 );
+
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border border-slate-200 rounded-2xl bg-white overflow-hidden transition-all hover:shadow-md hover:border-slate-300">
+      <button onClick={() => setIsOpen(!isOpen)} className="w-full px-8 py-6 flex items-center justify-between text-left">
+        <span className="text-lg font-bold text-slate-900">{question}</span>
+        <ChevronDown className={`text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      {isOpen && (
+        <motion.div 
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          className="px-8 pb-6 text-slate-600 leading-relaxed font-medium"
+        >
+          {answer}
+        </motion.div>
+      )}
+    </div>
+  );
+};
 
 export default Radar;

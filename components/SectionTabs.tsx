@@ -6,8 +6,7 @@ const tabs = [
   { id: 'overview', label: 'Overview' },
   { id: 'protocol', label: 'Protocol' },
   { id: 'security', label: 'Security' },
-  { id: 'what-agentix-enables', label: 'Why Agentix' },
-  { id: 'faq', label: 'FAQ' },
+  { id: 'dashboard', label: 'Dashboard' },
 ];
 
 const SectionTabs: React.FC = () => {
@@ -23,9 +22,9 @@ const SectionTabs: React.FC = () => {
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Special case: if why-agentix is visible, highlight what-agentix-enables tab
+          // Special case: if why-agentix is visible, highlight dashboard tab
           if (entry.target.id === 'why-agentix') {
-            setActiveTab('what-agentix-enables');
+            setActiveTab('dashboard');
           } else {
             setActiveTab(entry.target.id);
           }
@@ -35,7 +34,7 @@ const SectionTabs: React.FC = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Observe all sections including why-agentix
+    // Observe all sections including why-agentix for dashboard highlighting
     const sectionIds = [...tabs.map(t => t.id), 'why-agentix'];
     sectionIds.forEach((id) => {
       const element = document.getElementById(id);

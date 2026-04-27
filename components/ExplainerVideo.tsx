@@ -191,21 +191,6 @@ const ExplainerVideo: React.FC = () => {
           )}
       </div>
 
-      {/* Sales Impact Subtext */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
-        <div className="p-4">
-          <p className="text-3xl font-bold text-slate-900 mb-1">0.4s</p>
-          <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Protocol Latency</p>
-        </div>
-        <div className="p-4">
-          <p className="text-3xl font-bold text-brand-600 mb-1">+42%</p>
-          <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Discovery Rate</p>
-        </div>
-        <div className="p-4">
-          <p className="text-3xl font-bold text-slate-900 mb-1">200k+</p>
-          <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Agents Supported</p>
-        </div>
-      </div>
     </div>
   );
 };

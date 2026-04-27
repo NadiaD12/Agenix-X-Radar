@@ -70,7 +70,7 @@ const DashboardPreview: React.FC = () => {
   };
 
   return (
-    <section id="agentix-in-action" className="py-24 bg-slate-50/50 relative overflow-hidden border-b border-slate-200 scroll-mt-20">
+    <section id="dashboard" className="py-24 bg-slate-50/50 relative overflow-hidden border-b border-slate-200 scroll-mt-20">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none -z-10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/50 rounded-full blur-[120px]"></div>
@@ -90,25 +90,44 @@ const DashboardPreview: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
             <span className="text-brand-600 font-bold tracking-widest uppercase text-[10px]">Control Center</span>
           </motion.div>
-          <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter leading-none">
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter leading-none"
+          >
             Agentix Control Center
-          </h3>
-          <p className="text-lg text-slate-600 font-medium leading-relaxed">
+          </motion.h3>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-600 font-medium leading-relaxed"
+          >
             The Agentix Control Center is designed to track merchant revenue, optimize growth, and prevent fraud in real-time. Gain the visibility to improve agentic channel performance and drive higher conversions.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="flex items-center justify-center gap-3 text-brand-600 font-black uppercase tracking-[0.25em] text-xs mb-12 animate-pulse">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex items-center justify-center gap-3 text-brand-600 font-black uppercase tracking-[0.25em] text-xs mb-12 animate-pulse"
+        >
           <ChevronRight size={14} className="text-brand-500" />
           <span>Try our interactive dashboard</span>
           <ChevronRight size={14} className="rotate-180 text-brand-500" />
-        </div>
+        </motion.div>
 
         {/* Dashboard Mockup Container */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.98, y: 40 }}
+          initial={{ opacity: 0, scale: 0.95, y: 60 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 bg-white border border-slate-200 flex flex-col md:flex-row h-[800px] backdrop-blur-sm"
         >
           
@@ -280,7 +299,7 @@ const OverviewView = () => {
         />
         <StatCard 
           label="Agentic Discovery Rate" 
-          value="89.2%" 
+          value="100%" 
           trend="+12.1%" 
           icon={<Search className="text-blue-700" size={18} />} 
           color="blue"

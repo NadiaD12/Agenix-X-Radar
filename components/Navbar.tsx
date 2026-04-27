@@ -3,8 +3,8 @@ import Logo from './Logo';
 
 interface NavbarProps {
   onOpenDemo: () => void;
-  onViewChange: (view: 'home' | 'radar') => void;
-  currentView: 'home' | 'radar';
+  onViewChange: (view: 'home' | 'radar' | 'nexus' | 'faq') => void;
+  currentView: 'home' | 'radar' | 'nexus';
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onViewChange, currentView }) => {
@@ -38,6 +38,15 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onViewChange, currentView }
               className={`text-sm font-bold uppercase tracking-widest transition-colors ${currentView === 'radar' ? 'text-brand-600' : 'text-slate-500 hover:text-slate-900'}`}
             >
               Radar
+            </button>
+            <button 
+              onClick={() => {
+                onViewChange('nexus');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className={`text-sm font-bold uppercase tracking-widest transition-colors ${currentView === 'nexus' ? 'text-brand-600' : 'text-slate-500 hover:text-slate-900'}`}
+            >
+              Nexus
             </button>
           </div>
           

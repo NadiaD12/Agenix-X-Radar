@@ -14,7 +14,7 @@ const SubstackLogo = ({ className }: { className?: string }) => (
 );
 
 interface FooterProps {
-  onViewChange?: (view: 'home' | 'radar') => void;
+  onViewChange?: (view: 'home' | 'radar' | 'nexus' | 'faq') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
           </div>
           
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Product</h4>
+            <h4 className="font-semibold text-slate-900 mb-4 uppercase tracking-widest text-xs">Product</h4>
             <ul className="space-y-3 text-sm text-slate-600">
               <li>
                 <button 
@@ -56,7 +56,7 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
                     onViewChange?.('home');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
-                  className="hover:text-brand-600 transition-colors"
+                  className="hover:text-brand-600 transition-colors font-medium"
                 >
                   Overview
                 </button>
@@ -67,33 +67,42 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
                     onViewChange?.('radar');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
-                  className="hover:text-brand-600 transition-colors"
+                  className="hover:text-brand-600 transition-colors font-medium"
                 >
                   Radar
                 </button>
               </li>
-              <li><a href="#protocol" className="hover:text-brand-600 transition-colors">Integrations</a></li>
-              <li><a href="#security" className="hover:text-brand-600 transition-colors">Security</a></li>
+              <li>
+                <button 
+                  onClick={() => {
+                    onViewChange?.('nexus');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }} 
+                  className="hover:text-brand-600 transition-colors font-medium"
+                >
+                  Nexus
+                </button>
+              </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Resources</h4>
+            <h4 className="font-semibold text-slate-900 mb-4 uppercase tracking-widest text-xs">Company</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><a href="https://agentixpay.substack.com" target="_blank" className="hover:text-brand-600 transition-colors">Substack Blog</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">API Reference</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">Status</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li><a href="#" className="hover:text-brand-600 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-brand-600 transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-brand-600 transition-colors font-medium">About</a></li>
+              <li><a href="#" className="hover:text-brand-600 transition-colors font-medium">Contact</a></li>
+              <li><a href="#" className="hover:text-brand-600 transition-colors font-medium">Careers</a></li>
+              <li>
+                <button 
+                  onClick={() => {
+                    onViewChange?.('faq');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }} 
+                  className="hover:text-brand-600 transition-colors font-medium"
+                >
+                  FAQ
+                </button>
+              </li>
             </ul>
           </div>
         </div>

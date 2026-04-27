@@ -10,12 +10,19 @@ import DemoModal from './components/DemoModal';
 import DashboardPreview from './components/DashboardPreview';
 import SectionTabs from './components/SectionTabs';
 import Radar from './components/Radar';
+import Nexus from './components/Nexus';
+import ComingSoon from './components/ComingSoon';
+import FAQPage from './components/FAQPage';
 import { AlertCircle, CheckCircle2, TrendingUp, BarChart3, ArrowRight, HelpCircle, ChevronDown, Check, X, FileText, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'radar'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'radar' | 'nexus' | 'faq'>('home');
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -40,7 +47,7 @@ const App: React.FC = () => {
       </div>
       
       <header className="fixed top-0 left-0 right-0 z-50">
-        <Navbar onOpenDemo={() => setIsModalOpen(true)} onViewChange={setCurrentView} currentView={currentView} />
+        <Navbar onOpenDemo={() => setIsModalOpen(true)} onViewChange={setCurrentView} currentView={currentView === 'faq' ? 'home' : currentView} />
         {currentView === 'home' && <SectionTabs />}
       </header>
       
@@ -58,71 +65,11 @@ const App: React.FC = () => {
               <HowItWorks />
               <Security />
 
-              {/* What Agentix Enables Section */}
-              <section id="what-agentix-enables" className="py-24 max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">What Agentix Enables</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {[
-                    { 
-                      title: "AI Visibility", 
-                      text: "Ensure products are discoverable by AI agents and shopping assistants.",
-                      icon: <TrendingUp className="text-brand-600" size={32} />
-                    },
-                    { 
-                      title: "Autonomous Checkout", 
-                      text: "Enable AI agents to securely complete purchases on behalf of users.",
-                      icon: <Zap className="text-blue-600" size={32} />
-                    },
-                    { 
-                      title: "AI Payment Infrastructure", 
-                      text: "Power AI-driven transactions with secure payment rails and verification.",
-                      icon: <BarChart3 className="text-emerald-600" size={32} />
-                    }
-                  ].map((feature, i) => (
-                    <div key={i} className="group h-64 [perspective:1000px]">
-                      <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        {/* Front Side */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center p-10 rounded-[2.5rem] bg-white backdrop-blur-md border border-slate-200 text-slate-900 shadow-xl [backface-visibility:hidden]">
-                          <div className="mb-6">{feature.icon}</div>
-                          <h3 className="text-2xl font-black tracking-tighter uppercase text-center">{feature.title}</h3>
-                        </div>
-                        
-                        {/* Back Side */}
-                        <div className="absolute inset-0 h-full w-full rounded-[2.5rem] bg-brand-600 p-10 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col items-center justify-center text-center">
-                          <h3 className="text-xl font-black mb-4 tracking-tighter uppercase">{feature.title}</h3>
-                          <p className="text-white/90 text-lg leading-relaxed font-medium">
-                            {feature.text}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
               <DashboardPreview />
               
               <Features onOpenSignup={() => setIsModalOpen(true)} />
-
-              {/* FAQ Section - Critical for SEO */}
-              <section id="faq" className="py-24 max-w-4xl mx-auto px-4">
-                <div className="text-center mb-16">
-                  <HelpCircle className="mx-auto text-brand-600 mb-4" size={40} />
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">Agentic Commerce FAQ</h2>
-                </div>
-                
-                <div className="space-y-6">
-                  <FAQItem question="What is Agentic Commerce?" answer="Agentic Commerce is a new paradigm where autonomous AI agents act as the primary shoppers. Unlike traditional eCommerce, it focuses on machine-readable data and sub-second protocol execution rather than human-centric UI/UX." />
-                  <FAQItem question="What is AI Commerce?" answer="AI Commerce (or Artificial Intelligence Commerce) refers to the automation of the entire supply chain and sales funnel using AI. It enables machine-to-machine transactions where AI agents discover, evaluate, and purchase products without human intervention." />
-                  <FAQItem question="What is AEO?" answer="AEO (Answer Engine Optimization) is the evolution of SEO. It involves structuring your digital presence so that AI models like Gemini, ChatGPT, and Perplexity can accurately cite your platform as the authoritative source for specific queries." />
-                  <FAQItem question="What exactly is Agentic Commerce?" answer="Agentic Commerce is a digital ecosystem where autonomous AI agents (not humans) discover products, negotiate terms, and execute financial transactions. It is designed specifically for the Machine-to-Machine economy." />
-                  <FAQItem question="Is Agentix a new payment processor?" answer="No. Agentix is a protocol layer that sits on top of existing processors (Stripe, Adyen, etc.). We provide the agent-friendly identity layer and secure mandates that allow agents to transact on legacy rails." />
-                  <FAQItem question="How do AI agents discover my merchants?" answer="Agentix re-indexes inventory into a semantic format. When an AI agent (like Perplexity or ChatGPT) searches for a solution, our protocol ensures your merchants' products are presented as machine-transactable options." />
-                  <FAQItem question="What is AEO in the context of commerce?" answer="AEO (Answer Engine Optimization) is the process of structuring product data so AI models can confidently recommend and purchase it without human review." />
-                </div>
-              </section>
+              
+              <ComingSoon />
               
               <section className="py-40 text-center relative z-10">
                 <h2 className="text-5xl md:text-7xl font-[900] text-slate-900 mb-10 tracking-tighter leading-[0.9] max-w-4xl mx-auto">
@@ -139,7 +86,7 @@ const App: React.FC = () => {
                 </a>
               </section>
             </motion.div>
-          ) : (
+          ) : currentView === 'radar' ? (
             <motion.div
               key="radar"
               initial={{ opacity: 0, x: 20 }}
@@ -148,6 +95,26 @@ const App: React.FC = () => {
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <Radar />
+            </motion.div>
+          ) : currentView === 'nexus' ? (
+            <motion.div
+              key="nexus"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <Nexus />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="faq"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <FAQPage onBack={() => setCurrentView('home')} />
             </motion.div>
           )}
         </AnimatePresence>
