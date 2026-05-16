@@ -50,9 +50,9 @@ const FAQPage: React.FC<FAQPageProps> = ({ onBack }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-slate-50 pt-24 pb-32"
+      className="min-h-screen bg-slate-50 pt-16 md:pt-20 pb-20 md:pb-24"
     >
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-3xl mx-auto px-4">
         <button 
           onClick={onBack}
           className="flex items-center gap-2 text-slate-500 hover:text-brand-600 transition-colors mb-12 group"

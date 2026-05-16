@@ -47,10 +47,10 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="protocol" className="py-32 bg-white relative overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="protocol" className="py-20 md:py-24 bg-white relative overflow-hidden scroll-mt-20">
+      <div className="max-w-5xl md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const HowItWorks: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
             <span className="text-brand-600 font-bold tracking-widest uppercase text-[10px]">The Protocol</span>
           </motion.div>
-          <h3 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter leading-none uppercase">
+          <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter leading-none uppercase">
             How Agentix Powers AI Commerce
           </h3>
           <p className="text-lg text-slate-600 font-medium leading-relaxed">

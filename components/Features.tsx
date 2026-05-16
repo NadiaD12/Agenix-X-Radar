@@ -30,15 +30,15 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
   };
 
   return (
-    <section id="why-agentix" className="py-24 bg-transparent relative overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-agentix" className="py-16 md:py-20 bg-transparent relative overflow-hidden scroll-mt-20">
+      <div className="max-w-5xl md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3"
+            className="text-brand-700 font-semibold tracking-wide uppercase text-sm mb-3"
           >
             Why Agentix
           </motion.h2>
@@ -67,9 +67,9 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
         >
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="h-full">
             <FeatureCard 
               icon={<Network className="text-brand-600" />}
               title="Agentic Connectivity"
@@ -77,7 +77,7 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
             />
           </motion.div>
           
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="h-full">
             <FeatureCard 
               icon={<Search className="text-amber-600" />}
               title="AI Visibility Optimization"
@@ -85,7 +85,7 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
             />
           </motion.div>
           
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="h-full">
             <FeatureCard 
               icon={<ShoppingCart className="text-emerald-600" />}
               title="Agentic Transaction Protocol"
@@ -93,38 +93,13 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
             />
           </motion.div>
           
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="h-full">
             <FeatureCard 
               icon={<Lock className="text-blue-700" />}
               title="Agent Verification & Safety"
               description="Verify AI agents and transaction liquidity before checkout to ensure secure autonomous commerce."
             />
           </motion.div>
-        </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20 rounded-3xl bg-white backdrop-blur-md border border-slate-200 text-slate-900 p-8 md:p-16 relative overflow-hidden shadow-2xl shadow-slate-200/50"
-        >
-          <div className="relative z-10 max-w-2xl">
-            <h4 className="text-2xl md:text-3xl font-bold mb-4">Lead the Agentic Commerce Revolution</h4>
-            <p className="text-slate-600 mb-8 text-lg">
-              By 2026, over 20% of all eCommerce transactions will be initiated by non-human agents. Agentix is the only infrastructure that makes merchants ready today.
-            </p>
-            <button 
-              onClick={onOpenSignup}
-              className="inline-flex items-center text-slate-900 font-bold hover:text-brand-600 transition-colors decoration-brand-600 decoration-2 underline-offset-4 group"
-            >
-              Integrate the Agentic API <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-          
-          {/* Decorative mesh */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-50 to-transparent opacity-50"></div>
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-brand-500 rounded-full blur-[80px] opacity-10"></div>
         </motion.div>
 
       </div>
@@ -133,12 +108,12 @@ const Features: React.FC<FeaturesProps> = ({ onOpenSignup }) => {
 };
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-  <div className="group p-6 rounded-2xl bg-white backdrop-blur-sm border border-slate-200 hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-    <div className="w-12 h-12 bg-slate-50 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+  <div className="group p-6 rounded-2xl bg-white backdrop-blur-sm border border-slate-200 hover:border-brand-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+    <div className="w-12 h-12 bg-slate-50 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
       {React.isValidElement(icon) ? React.cloneElement(icon as React.ReactElement<any>, { size: 24 }) : icon}
     </div>
     <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
-    <p className="text-slate-600 leading-relaxed text-sm">
+    <p className="text-slate-600 leading-relaxed text-sm flex-1">
       {description}
     </p>
   </div>

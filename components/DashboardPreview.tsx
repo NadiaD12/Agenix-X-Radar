@@ -70,14 +70,14 @@ const DashboardPreview: React.FC = () => {
   };
 
   return (
-    <section id="dashboard" className="py-24 bg-slate-50/50 relative overflow-hidden border-b border-slate-200 scroll-mt-20">
+    <section id="dashboard" className="py-16 md:py-20 bg-slate-50/50 relative overflow-hidden border-b border-slate-200 scroll-mt-20">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none -z-10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/50 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[120px]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -88,7 +88,7 @@ const DashboardPreview: React.FC = () => {
             className="inline-flex items-center space-x-2 bg-brand-100 px-3 py-1 rounded-full mb-4 border border-brand-200"
           >
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-            <span className="text-brand-600 font-bold tracking-widest uppercase text-[10px]">Control Center</span>
+            <span className="text-brand-700 font-bold tracking-widest uppercase text-[10px]">Control Center</span>
           </motion.div>
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ const DashboardPreview: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="flex items-center justify-center gap-3 text-brand-600 font-black uppercase tracking-[0.25em] text-xs mb-12 animate-pulse"
+          className="flex items-center justify-center gap-3 text-brand-700 font-black uppercase tracking-[0.25em] text-xs mb-12 animate-pulse"
         >
           <ChevronRight size={14} className="text-brand-500" />
           <span>Try our interactive dashboard</span>
@@ -123,13 +123,14 @@ const DashboardPreview: React.FC = () => {
         </motion.div>
 
         {/* Dashboard Mockup Container */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95, y: 60 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 bg-white border border-slate-200 flex flex-col md:flex-row h-[800px] backdrop-blur-sm"
-        >
+        <div className="scale-[0.6] md:scale-[0.75] lg:scale-[0.7] origin-top transition-all duration-700 -mt-16 mb-[-250px]">
+          <motion.div 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative max-w-6xl mx-auto rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200 bg-white border border-slate-200 flex flex-col md:flex-row h-[800px] backdrop-blur-sm"
+          >
           
           {/* Sidebar - Light Mode Aesthetic */}
           <div className="hidden md:flex w-20 lg:w-72 bg-slate-50 flex-col p-6 text-slate-500 border-r border-slate-200">
@@ -236,7 +237,7 @@ const DashboardPreview: React.FC = () => {
               >
                 <div className="flex items-center space-x-6">
                   <div className={`p-4 bg-brand-100 rounded-2xl transition-all duration-500 group-hover:bg-brand-200 ${isGenerating ? 'animate-pulse' : ''}`}>
-                    <BrainCircuit className="text-brand-600" size={32} />
+                    <BrainCircuit className="text-brand-700" size={32} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -260,7 +261,8 @@ const DashboardPreview: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 
@@ -323,13 +325,13 @@ const OverviewView = () => {
             <div className="flex p-1 bg-slate-50 rounded-xl border border-slate-200">
               <button 
                 onClick={() => setTimeframe('Month')}
-                className={`px-5 py-2 text-xs font-black rounded-lg transition-all ${timeframe === 'Month' ? 'bg-white text-brand-600 shadow-md border border-slate-200' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`px-5 py-2 text-xs font-black rounded-lg transition-all ${timeframe === 'Month' ? 'bg-white text-brand-700 shadow-md border border-slate-200' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 Month
               </button>
               <button 
                 onClick={() => setTimeframe('Year')}
-                className={`px-5 py-2 text-xs font-black rounded-lg transition-all ${timeframe === 'Year' ? 'bg-white text-brand-600 shadow-md border border-slate-200' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`px-5 py-2 text-xs font-black rounded-lg transition-all ${timeframe === 'Year' ? 'bg-white text-brand-700 shadow-md border border-slate-200' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 Year
               </button>
@@ -380,7 +382,7 @@ const OverviewView = () => {
           
           <h4 className="font-black mb-8 flex items-center text-lg tracking-tight">
             <div className="p-2 bg-slate-50 rounded-lg mr-3 border border-slate-100">
-               <Cpu size={20} className="text-brand-600" />
+               <Cpu size={20} className="text-brand-700" />
             </div>
             Live Agent Flows
           </h4>
@@ -530,7 +532,7 @@ const SidebarItem = ({ icon, label, active = false, onClick }: { icon: React.Rea
         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
       />
     )}
-    <div className={`${active ? 'text-white' : 'text-slate-500 group-hover:text-brand-400'} transition-colors`}>
+    <div className={`${active ? 'text-white' : 'text-slate-500 group-hover:text-brand-600'} transition-colors`}>
       {icon}
     </div>
     <span className="text-sm font-black tracking-tight hidden lg:block">{label}</span>
@@ -540,7 +542,7 @@ const SidebarItem = ({ icon, label, active = false, onClick }: { icon: React.Rea
 
 const StatCard = ({ label, value, trend, icon, color }: { label: string, value: string, trend: string, icon: React.ReactNode, color: string }) => {
   const colorMap: any = {
-    brand: 'border-brand-800 bg-brand-900/30 text-brand-400',
+    brand: 'border-brand-800 bg-brand-900/30 text-brand-700',
     emerald: 'border-emerald-800 bg-emerald-900/30 text-emerald-400',
     blue: 'border-blue-800 bg-blue-900/30 text-blue-400',
     darkblue: 'border-blue-700 bg-blue-800/30 text-blue-300',
@@ -573,7 +575,7 @@ const ActivityRow = ({ agent, action, result, time, status }: { agent: string, a
       </div>
     </div>
     <div className="text-right">
-      <div className="text-brand-400 font-mono font-bold">{result}</div>
+      <div className="text-brand-600 font-mono font-bold">{result}</div>
       <div className="text-slate-500 text-[9px] font-bold uppercase tracking-widest mt-0.5">{time}</div>
     </div>
   </div>
@@ -601,14 +603,14 @@ const DiscoveryRow = ({ agent, score, mentions, rate }: { agent: string, score: 
   <tr className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-all group">
     <td className="px-8 py-6">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-brand-900/50 group-hover:text-brand-400 transition-colors">
+        <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-brand-900/50 group-hover:text-brand-600 transition-colors">
           <Cpu size={14} />
         </div>
         <span className="font-black text-white tracking-tight">{agent}</span>
       </div>
     </td>
     <td className="px-8 py-6">
-      <span className="px-3 py-1.5 bg-brand-900/30 text-brand-400 rounded-xl font-mono text-[11px] font-black border border-brand-800/50">{score}</span>
+      <span className="px-3 py-1.5 bg-brand-900/30 text-brand-600 rounded-xl font-mono text-[11px] font-black border border-brand-800/50">{score}</span>
     </td>
     <td className="px-8 py-6 text-slate-400 font-bold text-center">{mentions}</td>
     <td className="px-8 py-6 text-right">

@@ -14,7 +14,7 @@ const SubstackLogo = ({ className }: { className?: string }) => (
 );
 
 interface FooterProps {
-  onViewChange?: (view: 'home' | 'radar' | 'nexus' | 'faq') => void;
+  onViewChange?: (view: 'home' | 'faq' | 'os') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
@@ -64,23 +64,12 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
               <li>
                 <button 
                   onClick={() => {
-                    onViewChange?.('radar');
+                    onViewChange?.('os');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
                   className="hover:text-brand-600 transition-colors font-medium"
                 >
-                  Radar
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => {
-                    onViewChange?.('nexus');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }} 
-                  className="hover:text-brand-600 transition-colors font-medium"
-                >
-                  Nexus
+                  Agentix OS
                 </button>
               </li>
             </ul>

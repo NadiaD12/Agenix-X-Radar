@@ -9,15 +9,13 @@ import Footer from './components/Footer';
 import DemoModal from './components/DemoModal';
 import DashboardPreview from './components/DashboardPreview';
 import SectionTabs from './components/SectionTabs';
-import Radar from './components/Radar';
-import Nexus from './components/Nexus';
-import ComingSoon from './components/ComingSoon';
+import AgentixOS from './components/AgentixOS';
 import FAQPage from './components/FAQPage';
 import { AlertCircle, CheckCircle2, TrendingUp, BarChart3, ArrowRight, HelpCircle, ChevronDown, Check, X, FileText, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'radar' | 'nexus' | 'faq'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'faq' | 'os'>('home');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,42 +67,48 @@ const App: React.FC = () => {
               
               <Features onOpenSignup={() => setIsModalOpen(true)} />
               
-              <ComingSoon />
-              
-              <section className="py-40 text-center relative z-10">
-                <h2 className="text-5xl md:text-7xl font-[900] text-slate-900 mb-10 tracking-tighter leading-[0.9] max-w-4xl mx-auto">
-                  Check if your products <br/> <span className="text-brand-600 text-6xl md:text-8xl">can be found on AI</span>
+              <section className="py-24 md:py-32 text-center relative z-10 px-4">
+                <h2 className="text-4xl md:text-6xl font-[900] text-slate-900 mb-8 tracking-tighter leading-[0.9] max-w-3xl mx-auto uppercase">
+                  Get your free <br/> <span className="text-brand-700 text-5xl md:text-7xl">AEO score</span>
                 </h2>
-                <a 
-                  href="https://agentixpay.substack.com/p/agentixpay-white-paper" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-12 py-6 rounded-full bg-brand-600 text-white font-[800] hover:shadow-[0_0_40px_rgba(56,83,230,0.6)] transition-all text-xl"
-                >
-                  <FileText size={24} />
-                  Check your AI visibility
-                </a>
+                
+                <div className="max-w-xl mx-auto w-full mt-12">
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      window.open('https://agentixpay.substack.com/p/agentixpay-white-paper', '_blank');
+                    }}
+                    className="relative group/search"
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-brand-500/20 to-blue-500/20 rounded-2xl blur opacity-25 group-focus-within/search:opacity-100 transition-opacity"></div>
+                    <div className="relative flex items-center">
+                      <input 
+                        type="text" 
+                        placeholder="Enter your store URL (e.g. store.com)"
+                        className="w-full bg-white backdrop-blur border border-slate-200 rounded-2xl px-6 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-500/50 transition-all shadow-xl"
+                      />
+                      <motion.button 
+                        whileHover={{ scale: 1.05, backgroundColor: "#061d33" }}
+                        whileTap={{ scale: 0.95 }}
+                        type="submit"
+                        className="absolute right-2 px-6 py-2.5 bg-[#092C4C] text-white text-[10px] font-black rounded-xl transition-all uppercase tracking-widest shadow-lg hover:shadow-brand-500/20"
+                      >
+                        Check score
+                      </motion.button>
+                    </div>
+                  </form>
+                </div>
               </section>
             </motion.div>
-          ) : currentView === 'radar' ? (
+          ) : currentView === 'os' ? (
             <motion.div
-              key="radar"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              <Radar />
-            </motion.div>
-          ) : currentView === 'nexus' ? (
-            <motion.div
-              key="nexus"
-              initial={{ opacity: 0, scale: 0.95 }}
+              key="os"
+              initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <Nexus />
+              <AgentixOS />
             </motion.div>
           ) : (
             <motion.div

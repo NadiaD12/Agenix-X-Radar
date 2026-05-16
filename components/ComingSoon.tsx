@@ -31,13 +31,13 @@ const ComingSoon: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-20 md:py-24 bg-slate-50 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-500/5 blur-[120px] rounded-full -z-10"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-500/5 blur-[120px] rounded-full -z-10"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,9 +52,9 @@ const ComingSoon: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-none"
+            className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-6 leading-none"
           >
-            Building the <span className="text-brand-600">Next Frontier.</span>
+            Building the <span className="text-brand-700">Next Frontier.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -102,8 +102,8 @@ const ComingSoon: React.FC = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="text-brand-400" size={20} />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-400">Early Access</span>
+                <Sparkles className="text-brand-700" size={20} />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-700">Early Access</span>
               </div>
               <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">Be the first to test the <br/> Agentix Logistics Engine.</h3>
               <p className="text-slate-400 font-medium">Join our developer beta to start building agent-native fulfillment flows today.</p>
